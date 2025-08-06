@@ -10,7 +10,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-             "destination": "/"
+             "destination": "/jndex.html"
         }
     ]
 }
