@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Button } from './Button'; // Assuming you have a Button component
-import { Input } from './input'; // Assuming you have an Input component
+import { Input } from './Input'; // Assuming you have an Input component
 import { Label } from './label';
 
 export const SignUpPage = ({
