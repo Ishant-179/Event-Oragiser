@@ -251,7 +251,7 @@ import MyEventsPage from "./pages/MyEventsPage";
 import ProfilePage from "./pages/ProfilePage";
 import AdminDashboard from "./pages/AdminDashboard";
 import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import SignupPage from "./pages/SignUpPage";
 import EventDetailPage from "./pages/EventDetail";
 
 import BackgroundVisualization from './components/BackgroundVisualization';
