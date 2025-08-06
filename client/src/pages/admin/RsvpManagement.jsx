@@ -19,7 +19,7 @@ const RsvpManagement = () => {
 
     const fetchRsvps = async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/admin/rsvps`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/rsvps`, {
                 headers: getAuthHeaders()
             });
             const data = await response.json();
@@ -51,7 +51,7 @@ const RsvpManagement = () => {
         if (!rsvpToUpdate || !newRsvpStatus) return;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/admin/rsvps/${rsvpToUpdate}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/rsvps/${rsvpToUpdate}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

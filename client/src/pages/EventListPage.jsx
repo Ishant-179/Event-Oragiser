@@ -29,7 +29,7 @@ const EventListPage = () => {
 
         const fetchEvents = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/events`);
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`);
                 const data = await response.json();
                 if (response.ok) {
                     setEvents(data);

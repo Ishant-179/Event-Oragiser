@@ -28,7 +28,7 @@ const AnalyticsDashboard = () => {
                 return; // Only fetch analytics if user is admin
             }
             try {
-                const response = await fetch(`${API_BASE_URL}/admin/analytics`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/analytics`, {
                     headers: getAuthHeaders()
                 });
                 const data = await response.json();

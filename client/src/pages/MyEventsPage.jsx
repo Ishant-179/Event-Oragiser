@@ -789,7 +789,7 @@ const MyEventsPage = () => {
         try {
             setLoading(true);
             const headers = getAuthHeaders();
-            const response = await fetch(`${API_BASE_URL}/events/my-events`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/my-events`, {
                 headers: {
                     'Content-Type': 'application/json',
                     ...headers

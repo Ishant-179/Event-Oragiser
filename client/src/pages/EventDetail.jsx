@@ -971,7 +971,7 @@ const EventDetailPage = () => {
         const fetchEventDetails = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`${API_BASE_URL}/events/${id}`, { signal });
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/${id}`, { signal });
                 const data = await response.json();
                 if (response.ok) {
                     setEvent(data);

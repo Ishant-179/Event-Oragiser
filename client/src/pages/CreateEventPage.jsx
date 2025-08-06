@@ -1060,7 +1060,7 @@ const CreateEventPage = () => {
                 dataToSend.append('banner', compressedBanner);
             }
 
-            const response = await fetch(`${API_BASE_URL}/events`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`, {
                 method: 'POST',
                 headers: getAuthHeaders(), // Ab yahan `getAuthHeaders` ka upyog kiya gaya hai
                 body: dataToSend,

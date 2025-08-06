@@ -762,7 +762,7 @@ const AdminEditEvent = () => {
 
         const fetchEventDetails = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/events/${id}`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/${id}`, {
                     headers: getAuthHeaders()
                 });
 
@@ -850,7 +850,7 @@ const AdminEditEvent = () => {
         };
 
         try {
-            const response = await fetch(`${API_BASE_URL}/events/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/${id}`, {
                 method: 'PUT',
                 headers: {
                     ...getAuthHeaders(),

@@ -29,7 +29,7 @@ const ProfilePage = () => {
         const fetchProfileData = async () => {
             try {
                 const headers = getAuthHeaders();
-                const response = await fetch(`${API_BASE_URL}/profile`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/profile`, {
                     headers: {
                         'Content-Type': 'application/json',
                         ...headers

@@ -301,7 +301,7 @@ const HomePage = () => {
 
         const fetchEvents = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/events`);
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`);
                 const data = await response.json();
                 if (response.ok) {
                     setEvents(data);
@@ -319,7 +319,7 @@ const HomePage = () => {
         const fetchAnalytics = async () => {
             if (!isAdmin) return;
             try {
-                const response = await fetch(`${API_BASE_URL}/admin/analytics`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/analytics`, {
                     headers: getAuthHeaders()
                 });
                 const data = await response.json();

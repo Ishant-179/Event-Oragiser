@@ -22,7 +22,7 @@ const AdminEventDetails = () => {
             // isAuthReady check ko hatayein agar aapke paas AuthContext nahi hai
             if (isAuthReady) {
                  try {
-                    const response = await fetch(`${API_BASE_URL}/events/${eventId}`, {
+                    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/${eventId}`, {
                         headers: getAuthHeaders() // Headers ko hatayein agar aapke paas auth nahi hai
                     });
                     const data = await response.json();

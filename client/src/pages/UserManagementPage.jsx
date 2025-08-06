@@ -22,7 +22,7 @@ const UserManagementPage = () => {
         return;
       }
       try {
-        const response = await fetch(`${API_BASE_URL}/admin/users`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/users`, {
           method: 'GET',
           headers: getAuthHeaders(),
         });
@@ -48,7 +48,7 @@ const UserManagementPage = () => {
       return;
     }
     try {
-      const response = await fetch(`${API_BASE_URL}/admin/users/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/users/${userId}`, {
         method: 'DELETE',
         headers: getAuthHeaders(),
       });

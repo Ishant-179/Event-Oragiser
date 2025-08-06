@@ -1387,7 +1387,7 @@ const AdminEventList = () => {
     const fetchEvents = async () => {
         try {
             // Obtain headers from auth context for the API call
-            const response = await fetch(`${API_BASE_URL}/events`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events`, {
                 headers: getAuthHeaders()
             });
             const data = await response.json();
@@ -1424,7 +1424,7 @@ const AdminEventList = () => {
 
         try {
             // Send a DELETE request to the backend to delete the event
-            const response = await fetch(`${API_BASE_URL}/events/${eventToDelete}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/events/${eventToDelete}`, {
                 method: 'DELETE',
                 headers: getAuthHeaders()
             });
