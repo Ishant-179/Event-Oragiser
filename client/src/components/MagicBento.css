@@ -1,0 +1,206 @@
+/* src/components/MagicBento.css */
+
+:root {
+  --hue: 145; /* Green hue */
+  --sat: 63%; /* Green saturation */
+  --white: hsl(0, 0%, 100%);
+  --green-primary: rgba(34, 197, 94, 1); /* Tailwind green-500 */
+  --green-glow: rgba(34, 197, 94, 0.2);
+  --green-border: rgba(34, 197, 94, 0.8);
+  --border-color: #2e4e39; /* Darker green/gray border */
+  --background-dark: #001006; /* Very dark green-ish background */
+  color-scheme: light dark;
+}
+
+.card-grid {
+  display: grid;
+  gap: 0.5em;
+  padding: 0.75em;
+  max-width: 54em;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  aspect-ratio: 4/3;
+  min-height: 200px;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.25em;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--background-dark);
+  font-weight: 300;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 200px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card__header,
+.card__content {
+  display: flex;
+  position: relative;
+  color: var(--white);
+}
+
+.card__header {
+  gap: 0.75em;
+  justify-content: space-between;
+}
+
+.card__label {
+  font-size: 16px;
+}
+
+.card__title,
+.card__description {
+  --clamp-title: 1;
+  --clamp-desc: 2;
+}
+
+.card__title {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0 0 0.25em;
+}
+
+.card__description {
+  font-size: 12px;
+  line-height: 1.2;
+  opacity: 0.9;
+}
+
+.card--text-autohide .card__title,
+.card--text-autohide .card__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card--text-autohide .card__title {
+  -webkit-line-clamp: var(--clamp-title);
+  line-clamp: var(--clamp-title);
+}
+
+.card--text-autohide .card__description {
+  -webkit-line-clamp: var(--clamp-desc);
+  line-clamp: var(--clamp-desc);
+}
+
+@media (max-width: 599px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5em;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 180px;
+  }
+}
+
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    /* Changed to 3 columns for uniform display of 3 cards */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Removed specific grid placements to make all cards uniform */
+  /* .card:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .card:nth-child(4) {
+    grid-column: 1/span 2;
+    grid-row: 2/span 2;
+  }
+
+  .card:nth-child(6) {
+    grid-column: 4;
+    grid-row: 3;
+  } */
+}
+
+/* Border glow effect */
+.card--border-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 6px;
+  background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+      rgba(34, 197, 94, calc(var(--glow-intensity) * 0.8)) 0%, /* Green glow */
+      rgba(34, 197, 94, calc(var(--glow-intensity) * 0.4)) 30%,
+      transparent 60%);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card--border-glow:hover::after {
+  opacity: 1;
+}
+
+.card--border-glow:hover {
+  box-shadow: 0 4px 20px rgba(24, 78, 46, 0.4), 0 0 30px var(--green-glow); /* Green shadow */
+}
+
+.particle-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: rgba(34, 197, 94, 0.2); /* Green particle glow */
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.particle-container:hover {
+  box-shadow: 0 4px 20px rgba(24, 78, 46, 0.2), 0 0 30px var(--green-glow); /* Green shadow */
+}
+
+/* Global spotlight styles */
+.global-spotlight {
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  z-index: 200 !important;
+  pointer-events: none;
+}
+
+.bento-section {
+  position: relative;
+  user-select: none;
+}
