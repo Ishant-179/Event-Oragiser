@@ -794,7 +794,7 @@ const AuthProvider = ({ children }) => {
           uid: payload.id,
           email: payload.email,
           name: payload.name,
-          role: payload.role || 'user',
+          role: payload.role ? payload.role.toLowerCase() : 'user',
         };
         
         localStorage.setItem('user', JSON.stringify(user));
