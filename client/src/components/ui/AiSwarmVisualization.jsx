@@ -272,13 +272,13 @@ export const AiSwarmVisualization = () => {
         <div>
           <h1 className="text-2xl font-bold flex items-center gap-2">
             <Brain className={themeMode === 'dark' ? "text-purple-400" : "text-purple-600"} />
-            AI Swarm Visualization
+            
           </h1>
           <p className={cn(
             "text-sm transition-colors duration-300",
             themeMode === 'dark' ? "text-gray-400" : "text-gray-600"
           )}>
-            Interactive particle system demonstrating emergent AI behaviors
+           
           </p>
         </div>
 
@@ -320,7 +320,7 @@ export const AiSwarmVisualization = () => {
         )}>
           <div className="flex flex-wrap gap-6">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Particle Count</label>
+              <label className="text-sm font-medium"></label>
               <div className="flex items-center gap-2">
                 <input
                   type="range"
@@ -335,7 +335,7 @@ export const AiSwarmVisualization = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium">Connection Distance</label>
+              <label className="text-sm font-medium"></label>
               <div className="flex items-center gap-2">
                 <input
                   type="range"
@@ -350,7 +350,7 @@ export const AiSwarmVisualization = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium">Particle Speed</label>
+              <label className="text-sm font-medium"></label>
               <div className="flex items-center gap-2">
                 <input
                   type="range"
@@ -367,7 +367,7 @@ export const AiSwarmVisualization = () => {
           </div>
 
           <div className="mt-4">
-            <label className="text-sm font-medium">Behavior Rule</label>
+            <label className="text-sm font-medium"></label>
             <div className="mt-2 flex flex-wrap gap-2">
               {rules.map((rule, index) => (
                 <button
